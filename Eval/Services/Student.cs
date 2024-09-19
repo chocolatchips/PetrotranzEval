@@ -8,14 +8,14 @@ namespace Eval.Services
         {
             StreamReader stream = FileManager.GetFile(path);
 
-            ReadLines(stream, out int wordCount, out int charCount);
+            GetCounts(stream, out int wordCount, out int charCount);
 
             return $"Total words: {wordCount}; Total characters: {charCount}";
         }
 
         
 
-        public void ReadLines(StreamReader stream, out int wordCount, out int charCount)
+        public void GetCounts(StreamReader stream, out int wordCount, out int charCount)
         {
             if (stream is null)
                 throw new Exception("Stream is null");
@@ -45,17 +45,6 @@ namespace Eval.Services
             charCount = characters;
         }
 
-        // public static bool IsStartLine(string line) {
-        //     string pattern = @"^\*\*\* START ";
-
-        //     return Regex.IsMatch(line, pattern);
-        // }
-
-        // public static bool IsEndLine(string line) {
-        //     string pattern = @"^\*\*\* END";
-
-        //     return Regex.IsMatch(line, pattern);
-        // }
 
         public static int GetWords(string line)
         {

@@ -52,7 +52,7 @@ namespace Eval.Tests
             StreamReader stream = FileManager.GetFile(path);
 
             // When
-            student.ReadLines(stream, out int wordCount, out int charCount);
+            student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected word count");
@@ -69,7 +69,7 @@ namespace Eval.Tests
             StreamReader stream = FileManager.GetFile(path);
 
             // When
-            student.ReadLines(stream, out int wordCount, out int charCount);
+            student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(charCount == charExpected, $"Character count {charCount} not equal to expected");
@@ -86,7 +86,7 @@ namespace Eval.Tests
             StreamReader stream = FileManager.GetFile(path);
 
             // When
-            student.ReadLines(stream, out int wordCount, out int charCount);
+            student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected word count");
@@ -103,7 +103,7 @@ namespace Eval.Tests
             StreamReader stream = FileManager.GetFile(path);
 
             // When
-            student.ReadLines(stream, out int wordCount, out int charCount);
+            student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(charCount == charExpected, $"Character count {charCount} not equal to expected");
@@ -121,7 +121,7 @@ namespace Eval.Tests
 
             StreamReader stream = FileManager.GetFile(path);
             // When
-            student.ReadLines(stream, out int wordCount, out int charCount);
+            student.GetCounts(stream, out int wordCount, out int charCount);
 
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected");
