@@ -5,7 +5,7 @@ namespace Eval.Tests
     public class LibrarianTests
     {
         [Fact]
-        public void ExampleTest()
+        public void LibrarianExampleTest()
         {
             // Given
             var librarian = new Librarian();
@@ -13,7 +13,7 @@ namespace Eval.Tests
             int perPage = 250;
             int expectedPages = 200;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, $"Pages = {pages} not 200");
         }
@@ -27,7 +27,7 @@ namespace Eval.Tests
             int perPage = 250;
             int expectedPages = 201;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
@@ -41,7 +41,7 @@ namespace Eval.Tests
             int perPage = 100;
             int expectedPages = 1;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
@@ -55,7 +55,7 @@ namespace Eval.Tests
             int perPage = 100;
             int expectedPages = 0;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
@@ -69,7 +69,7 @@ namespace Eval.Tests
             int perPage = -10;
             int expectedPages = 0;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
@@ -83,7 +83,7 @@ namespace Eval.Tests
             int perPage = 0;
             int expectedPages = 0;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
@@ -97,7 +97,7 @@ namespace Eval.Tests
             int perPage = 1000;
             int expectedPages = 2147484;
             // When
-            int pages = librarian.CalculatePages(words, perPage);
+            int pages = Librarian.CalculatePages(words, perPage);
             // Then
             Assert.True(pages == expectedPages, "Pages does not equal expected pages");
         }
