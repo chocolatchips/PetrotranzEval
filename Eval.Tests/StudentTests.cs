@@ -4,12 +4,6 @@ namespace Eval.Tests
 {
     public class StudentTests
     {
-        static string GetParentPath() {
-            string workingDir = Environment.CurrentDirectory;
-            string parentDir = Directory.GetParent(workingDir).Parent.Parent.Parent.FullName;
-            return parentDir;
-        }
-
         [Fact]
         public void GetWordCount()
         {
@@ -48,7 +42,7 @@ namespace Eval.Tests
             var student = new Student();
             int wordExpected = 16;
             
-            string path = $"{GetParentPath()}\\StudentTestOneLine.txt";
+            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestOneLine.txt";
             StreamReader stream = FileManager.GetFile(path);
 
             // When
@@ -65,7 +59,7 @@ namespace Eval.Tests
             var student = new Student();
             int charExpected = 69;
             
-            string path = $"{GetParentPath()}\\StudentTestOneLine.txt";
+            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestOneLine.txt";
             StreamReader stream = FileManager.GetFile(path);
 
             // When
@@ -82,7 +76,7 @@ namespace Eval.Tests
             var student = new Student();
             int wordExpected = 18;
             
-            string path = $"{GetParentPath()}\\StudentTestMultiLines.txt";
+            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestMultiLines.txt";
             StreamReader stream = FileManager.GetFile(path);
 
             // When
@@ -99,7 +93,7 @@ namespace Eval.Tests
             var student = new Student();
             int charExpected = 77;
             
-            string path = $"{GetParentPath()}\\StudentTestMultiLines.txt";
+            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestMultiLines.txt";
             StreamReader stream = FileManager.GetFile(path);
 
             // When
@@ -114,7 +108,7 @@ namespace Eval.Tests
         {
             // Given
             var student = new Student();
-            string path = $"{GetParentPath()}\\A Tale of Two Cities - Charles Dickens.txt";
+            string path = $"{FileManagerTests.GetParentPath()}\\A Tale of Two Cities - Charles Dickens.txt";
 
             int wordExpected = 135834;
             int charExpected = 741484;

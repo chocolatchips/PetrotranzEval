@@ -4,7 +4,7 @@ namespace Eval.Tests
 {
     public class FileManagerTests
     {
-        static string GetParentPath() {
+        public static string GetParentPath() {
             string workingDir = Environment.CurrentDirectory;
             string parentDir = Directory.GetParent(workingDir).Parent.Parent.Parent.FullName;
             return parentDir;
