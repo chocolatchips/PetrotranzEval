@@ -14,11 +14,10 @@ namespace Eval.Tests
         public void GetFileExists()
         {
             // Given
-            string parentDir = GetParentPath();
-            string path = $"{parentDir}\\A Tale of Two Cities - Charles Dickens.txt";
+            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
         
             // When
-            var res = FileManager.GetFile(path);
+            var res = FileManager.GetFileStreamReader(path);
 
             // Then
             Assert.NotNull(res);
@@ -29,7 +28,7 @@ namespace Eval.Tests
         {
             string path = @"A Tale";
 
-            Assert.ThrowsAny<Exception>(() => FileManager.GetFile(path));
+            Assert.ThrowsAny<Exception>(() => FileManager.GetFileStreamReader(path));
         }
 
         [Fact]
@@ -75,7 +74,6 @@ namespace Eval.Tests
         public void TextEndMatchFail()
         {
             // Given
-            var student = new Student();
             string line = "Produced by: Arthur DiBianca and David Widger";
             
             // When

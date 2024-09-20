@@ -8,12 +8,11 @@ namespace Eval.Tests
         public void GetWordCount()
         {
             // Given
-            var student = new Student();
             string line = "we were all going direct to Heaven,";
             int expected = 7;
 
             // When
-            int res = Student.GetWords(line);
+            int res = Student.GetWordCount(line);
 
             // Then
             Assert.True(res == expected, "Result and expected word lists do not match");
@@ -23,7 +22,6 @@ namespace Eval.Tests
         public void GetCharacterCount()
         {
             // Given
-            var student = new Student();
             string line = "top and be damned to you, for I have had trouble enough to get you to";
             int expected = 69;
             
@@ -39,14 +37,13 @@ namespace Eval.Tests
         public void GetWordCountsFromFileSingleLine()
         {
             // Given
-            var student = new Student();
             int wordExpected = 16;
             
-            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestOneLine.txt";
-            StreamReader stream = FileManager.GetFile(path);
+            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestOneLine.txt");
+            StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
-            student.GetCounts(stream, out int wordCount, out int charCount);
+            Student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected word count");
@@ -56,14 +53,13 @@ namespace Eval.Tests
         public void GetCharCountFromFileSingleLine()
         {
             // Given
-            var student = new Student();
             int charExpected = 69;
             
-            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestOneLine.txt";
-            StreamReader stream = FileManager.GetFile(path);
+            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestOneLine.txt");
+            StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
-            student.GetCounts(stream, out int wordCount, out int charCount);
+            Student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(charCount == charExpected, $"Character count {charCount} not equal to expected");
@@ -73,14 +69,13 @@ namespace Eval.Tests
         public void GetWordCountsFromFileMultiLine()
         {
             // Given
-            var student = new Student();
             int wordExpected = 18;
             
-            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestMultiLines.txt";
-            StreamReader stream = FileManager.GetFile(path);
+            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestMultiLines.txt");
+            StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
-            student.GetCounts(stream, out int wordCount, out int charCount);
+            Student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected word count");
@@ -90,14 +85,13 @@ namespace Eval.Tests
         public void GetCharCountFromFileMultiLine()
         {
             // Given
-            var student = new Student();
             int charExpected = 77;
             
-            string path = $"{FileManagerTests.GetParentPath()}\\StudentTestMultiLines.txt";
-            StreamReader stream = FileManager.GetFile(path);
+            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestMultiLines.txt");
+            StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
-            student.GetCounts(stream, out int wordCount, out int charCount);
+            Student.GetCounts(stream, out int wordCount, out int charCount);
         
             // Then
             Assert.True(charCount == charExpected, $"Character count {charCount} not equal to expected");
@@ -107,15 +101,14 @@ namespace Eval.Tests
         public void StudentExampleTestCounts()
         {
             // Given
-            var student = new Student();
-            string path = $"{FileManagerTests.GetParentPath()}\\A Tale of Two Cities - Charles Dickens.txt";
+            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
 
-            int wordExpected = 135834;
+            int wordExpected = 136580;
             int charExpected = 741484;
 
-            StreamReader stream = FileManager.GetFile(path);
+            StreamReader stream = FileManager.GetFileStreamReader(path);
             // When
-            student.GetCounts(stream, out int wordCount, out int charCount);
+            Student.GetCounts(stream, out int wordCount, out int charCount);
 
             // Then
             Assert.True(wordCount == wordExpected, $"Word count {wordCount} not equal to expected");

@@ -7,7 +7,7 @@ namespace Eval.Services
     {
         public static string GetWordCount(string path, string desiredWord)
         {
-            StreamReader stream = FileManager.GetFile(path);
+            StreamReader stream = FileManager.GetFileStreamReader(path);
             FindWordCount(stream, desiredWord, out int count);
 
             return $"The word \"{desiredWord}\" appears {count} times.";

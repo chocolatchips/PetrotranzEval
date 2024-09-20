@@ -4,9 +4,9 @@ namespace Eval.Services
 {
     public class Student
     {
-        public string GetResults(string path)
+        public static string GetResults(string path)
         {
-            StreamReader stream = FileManager.GetFile(path);
+            StreamReader stream = FileManager.GetFileStreamReader(path);
 
             GetCounts(stream, out int wordCount, out int charCount);
 
@@ -15,7 +15,7 @@ namespace Eval.Services
 
         
 
-        public void GetCounts(StreamReader stream, out int wordCount, out int charCount)
+        public static void GetCounts(StreamReader stream, out int wordCount, out int charCount)
         {
             if (stream is null)
                 throw new Exception("Stream is null");
@@ -30,7 +30,7 @@ namespace Eval.Services
                     if (FileManager.IsEndLine(line))
                         break;
                     
-                    words += GetWords(line);
+                    words += GetWordCount(line);
                     characters += GetCharacters(line);
                     
                 }
@@ -44,22 +44,12 @@ namespace Eval.Services
         }
 
 
-        public static int GetWords(string line)
+        public static int GetWordCount(string line)
         {
             if (line.Length == 0)
                 return 0;
             
-            int wordCount = 0;
-
-            foreach (string word in line.Split(' ')) {
-                if (word.Length == 0)
-                    continue;
-                if (Regex.IsMatch(word, @"[A-Za-z]"))
-                    wordCount++;
-                
-            }
-            
-            return wordCount;
+            return FileManager.GetWordsInLine(line).Count;
         }
 
         public static int GetCharacters(string line)
