@@ -13,6 +13,11 @@ namespace Eval.Services
             return File.OpenText(path);
          }
 
+        public static string GetParentPath() {
+            string workingDir = Environment.CurrentDirectory;
+            string parentDir = Directory.GetParent(workingDir).FullName;
+            return parentDir;
+        }
 
         public static bool IsStartLine(string line) {
             string pattern = @"^\*\*\* START ";

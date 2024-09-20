@@ -21,15 +21,13 @@ namespace Eval.Services
                 throw new Exception("Stream is null");
 
             bool started = false;
-            bool ended = false;
             int words = 0;
             int characters = 0;
 
             string line;
             while ((line = stream.ReadLine()) != null) {
                 if (started) {
-                    ended = FileManager.IsEndLine(line);
-                    if (ended)
+                    if (FileManager.IsEndLine(line))
                         break;
                     
                     words += GetWords(line);

@@ -1,8 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
-namespace App
+﻿using Eval.Services;
+
+namespace Eval
 {
-    class Prpgram
+    class Program
     {
+        public static string GetParentPath() {
+            string workingDir = Environment.CurrentDirectory;
+            string parentDir = Directory.GetParent(workingDir).Parent.Parent.Parent.FullName;
+            return parentDir;
+        }
+
         public static void Main(string[] args){
             
         }
