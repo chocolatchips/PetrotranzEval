@@ -19,6 +19,10 @@ namespace Eval.Services
             return parentDir;
         }
 
+        public static string GetPath(string fileName) {
+            return Path.Join(GetParentPath(), fileName);
+        }
+
         public static bool IsStartLine(string line) {
             string pattern = @"^\*\*\* START ";
 

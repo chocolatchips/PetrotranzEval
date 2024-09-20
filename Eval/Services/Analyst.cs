@@ -4,7 +4,7 @@ namespace Eval.Services
 {
     public class Analyst
     {
-        public static string FindMostFrequentWords(string path)
+        public static string GetResults(string path)
         {
             StreamReader stream = FileManager.GetFileStreamReader(path);
             return FormatFreqString(GetWordFrequency(stream));

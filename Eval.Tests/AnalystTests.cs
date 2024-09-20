@@ -41,11 +41,11 @@ namespace Eval.Tests
         public void MostFrequentWordsTwoCities()
         {
             // Given
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
             string expected = "[\"the\", \"and\", \"of\", \"to\", \"a\", \"in\", \"his\", \"it\", \"i\", \"that\"]";
         
             // When
-            string res = Analyst.FindMostFrequentWords(path);
+            string res = Analyst.GetResults(path);
 
             // Then
             Assert.True(res.Equals(expected), $"{res}");
@@ -56,7 +56,7 @@ namespace Eval.Tests
         public void FrequencyCountTest()
         {
             // Given
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
             Dictionary<string, int> freq = [];
             StreamReader stream = FileManager.GetFileStreamReader(path);
 

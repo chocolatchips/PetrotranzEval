@@ -5,21 +5,6 @@ namespace Eval.Tests
     public class WordSearchTests
     {
         [Fact]
-        public void FindWordPass()
-        {
-            // Given
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
-            string word = "the";
-
-            StreamReader stream = FileManager.GetFileStreamReader(path);
-
-            // When
-            WordSearch.FindWordCount(stream, word, out int wordCount);
-            
-            // Then
-        }
-
-        [Fact]
         public void FindWordInLine()
         {
             // Given
@@ -127,7 +112,7 @@ namespace Eval.Tests
             string desiredWord = "revolution";
             int expected = 9;
 
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
             StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
@@ -144,10 +129,10 @@ namespace Eval.Tests
             string desiredWord = "revolution";
             int desiredCount = 9;
             string expectedString = $"The word \"{desiredWord}\" appears {desiredCount} times.";
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
 
             // When
-            string res = WordSearch.GetWordCount(path, desiredWord);
+            string res = WordSearch.GetResults(path, desiredWord);
         
             // Then
             Assert.True(res.Equals(expectedString), $"Strings do not match\n{res}");
@@ -160,10 +145,10 @@ namespace Eval.Tests
             string desiredWord = "it";
             int desiredCount = 2067;
             string expectedString = $"The word \"{desiredWord}\" appears {desiredCount} times.";
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
 
             // When
-            string res = WordSearch.GetWordCount(path, desiredWord);
+            string res = WordSearch.GetResults(path, desiredWord);
         
             // Then
             Assert.True(res == expectedString, $"{res}");

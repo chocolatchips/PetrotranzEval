@@ -39,7 +39,7 @@ namespace Eval.Tests
             // Given
             int wordExpected = 16;
             
-            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestOneLine.txt");
+            string path = FileManagerTests.GetPath("StudentTestOneLine.txt");
             StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
@@ -55,7 +55,7 @@ namespace Eval.Tests
             // Given
             int charExpected = 69;
             
-            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestOneLine.txt");
+            string path = FileManagerTests.GetPath("StudentTestOneLine.txt");
             StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
@@ -71,7 +71,7 @@ namespace Eval.Tests
             // Given
             int wordExpected = 18;
             
-            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestMultiLines.txt");
+            string path = FileManagerTests.GetPath("StudentTestMultiLines.txt");
             StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
@@ -87,7 +87,7 @@ namespace Eval.Tests
             // Given
             int charExpected = 77;
             
-            string path = Path.Join(FileManagerTests.GetParentPath(), "StudentTestMultiLines.txt");
+            string path = FileManagerTests.GetPath("StudentTestMultiLines.txt");
             StreamReader stream = FileManager.GetFileStreamReader(path);
 
             // When
@@ -101,7 +101,7 @@ namespace Eval.Tests
         public void StudentExampleTestCounts()
         {
             // Given
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = FileManagerTests.GetPath("A Tale of Two Cities - Charles Dickens.txt");
 
             int wordExpected = 136580;
             int charExpected = 741484;

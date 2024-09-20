@@ -5,7 +5,7 @@ namespace Eval.Services
 {
     public class WordSearch
     {
-        public static string GetWordCount(string path, string desiredWord)
+        public static string GetResults(string path, string desiredWord)
         {
             StreamReader stream = FileManager.GetFileStreamReader(path);
             FindWordCount(stream, desiredWord, out int count);

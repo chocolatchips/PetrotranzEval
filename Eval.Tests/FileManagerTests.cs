@@ -4,17 +4,21 @@ namespace Eval.Tests
 {
     public class FileManagerTests
     {
-        public static string GetParentPath() {
+        private static string GetParentPath() {
             string workingDir = Environment.CurrentDirectory;
             string parentDir = Directory.GetParent(workingDir).Parent.Parent.Parent.FullName;
             return parentDir;
+        }
+
+        public static string GetPath(string fileName) {
+            return Path.Join(GetParentPath(), fileName);
         }
 
         [Fact]
         public void GetFileExists()
         {
             // Given
-            string path = Path.Join(FileManagerTests.GetParentPath(), "A Tale of Two Cities - Charles Dickens.txt");
+            string path = GetPath("A Tale of Two Cities - Charles Dickens.txt");
         
             // When
             var res = FileManager.GetFileStreamReader(path);
